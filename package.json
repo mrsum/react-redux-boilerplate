@@ -1,0 +1,24 @@
+{
+  "name": "rship-sample",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Chernobrov <me@mrsum.ru> (http://mrsum.ru)",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^1.2.4",
+    "notie": "^3.9.4",
+    "react": "15.2.0",
+    "react-dom": "15.2.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.6",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.0",
+    "redux-promise-middleware": "^4.1.0",
+    "redux-thunk": "^2.1.0"
+  }
+}
