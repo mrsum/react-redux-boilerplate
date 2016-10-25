@@ -1,20 +1,27 @@
 'use strict';
 
+// ................................
+// ..####...##..##..######..#####..
+// .##......##..##....##....##..##.
+// ..####...######....##....#####..
+// .....##..##..##....##....##.....
+// ..####...##..##..######..##.....
+// ................................
+
 // current process path
 const __root = process.cwd();
-// get name and version
-const { name, version } = require(__root + '/package.json');
 
 // ------------------------------
 // Application config
 // ------------------------------
 module.exports = {
-  name: name,
-  version: version,
+  name: 'rship-sample',
+  version: '0.0.1',
+  description: '',
   // webpack configs
   webpack: {
-    client: __root + '/config/webpack/webpack.client.js',
-    server: __root + '/config/webpack/webpack.server.js'
+    client: __root + '/config/webpack/client.config.js',
+    server: __root + '/config/webpack/server.config.js'
   },
   // avaliable aliases for ecosystem
   aliases: {
