@@ -1,7 +1,8 @@
 // ------------------------------
 // Import rest actions
 // ------------------------------
-import { REQUEST_TRACK, REQUEST_TRACKS, SUCCESS, PENDING } from '_shared/actions/_types';
+import { ActionTypes } from '_shared/constants/tracks';
+import { SUCCES, PENDING } from '_shared/constants/global';
 
 /**
  * @param  {Array}  state  [description]
@@ -11,12 +12,12 @@ import { REQUEST_TRACK, REQUEST_TRACKS, SUCCESS, PENDING } from '_shared/actions
 export default function(state = [], action = {}) {
   switch (action.type) {
 
-    case REQUEST_TRACK + PENDING:
-    case REQUEST_TRACKS + PENDING:
+    case ActionTypes.REQUEST_TRACK + PENDING:
+    case ActionTypes.REQUEST_TRACKS + PENDING:
       return [];
 
-    case REQUEST_TRACK + SUCCESS:
-    case REQUEST_TRACKS + SUCCESS:
+    case ActionTypes.REQUEST_TRACK + SUCCESS:
+    case ActionTypes.REQUEST_TRACKS + SUCCESS:
       return action.payload;
 
     default:
