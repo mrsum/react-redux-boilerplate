@@ -50,18 +50,7 @@ module.exports = config => {
     {
       test: /\.(js|jsx)$/i,
       loader: 'babel-loader',
-      exclude: /(node_modules|bower_components)/,
-      query: {
-        presets: [
-          'babel-preset-react',
-          'babel-preset-es2015',
-          'babel-preset-stage-0'
-        ],
-        plugins: [
-          'babel-plugin-transform-runtime'
-        ],
-        ignore: ['node_modules', 'bower_components']
-      }
+      exclude: /(node_modules|bower_components)/
     }
   ];
 
