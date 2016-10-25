@@ -30,7 +30,7 @@ class TrackPage extends Component {
     let audio;
     if (url) {
       audio = (
-        <audio controls autoplay preload='none' className={styles.audio}>
+        <audio autoPlay controls preload='none' className={styles.audio}>
           <source src={`${url}?client_id=04a0e1708f413b9e335d4b13ea98c253`} type='audio/mpeg' />
         </audio>
       );
