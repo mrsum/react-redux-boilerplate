@@ -16,5 +16,7 @@ export const PENDING      = '_PENDING';
 // ------------------------------
 // FETCH prefixes
 // ------------------------------
-export const REQUEST_TOPIC = 'REQUEST_TOPIC';
-export const REQUEST_TOPICS = 'REQUEST_TOPICS';
+export const REQUEST_TRACK = 'REQUEST_TRACK';
+export const REQUEST_TRACKS = 'REQUEST_TRACKS';
+
+

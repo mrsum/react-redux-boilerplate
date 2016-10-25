@@ -11,7 +11,6 @@ export default async function(ctx, next) {
       console.log(`${ctx.method}: ${ctx.originalUrl}`);
       await next(); // next is now a function
     } catch (err) {
-      console.log(ctx);
       let error = { message: err.message, stack: err.stack, line: err.line };
       console.error(error);
       ctx.body = error;

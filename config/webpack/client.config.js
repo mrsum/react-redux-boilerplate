@@ -32,7 +32,7 @@ module.exports = config => {
 
     {
       test: /\.(ttf|eot|woff|woff2|png|ico|jpg|jpeg|gif|svg)$/i,
-      loaders: [`file?context=${cwd}/app&name=assets/static/[ext]/[name].[hash].[ext]`]
+      loaders: [`file?context=${dir}/app&name=assets/static/[ext]/[name].[hash].[ext]`]
     },
 
     {
@@ -79,11 +79,6 @@ module.exports = config => {
       publicPath: '/assets/'
     },
     resolve: resolve,
-    resolveLoader: {
-      fallback: [
-        `${cwd}/node_modules/`
-      ]
-    },
     devtool: env === 'production' ? 'source-map' : 'source-map',
     module: {
       loaders: loaders
