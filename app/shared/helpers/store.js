@@ -1,15 +1,13 @@
-'use strict';
-
+// ------------------------------
+// Depends
+// ------------------------------
 import React from 'react';
-
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunkMiddleware from 'redux-thunk';
 import reducers from '_shared/reducers';
 
-// import reduxMulti from 'redux-multi';
-// import promiseErrorLogger from '_shared/middlewares/promiseErrorLogger';
 
 export default function configureStore(history, initialState, middlewares) {
   const store = createStore(

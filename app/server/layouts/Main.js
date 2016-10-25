@@ -1,6 +1,6 @@
-'use strict';
-
+// ------------------------------
 // Depends
+// ------------------------------
 import config from '_config';
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom/server';

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Logger middleware
  * @param  {[type]} ctx [description]
@@ -17,6 +15,6 @@ export default async function(ctx, next) {
       ctx.status = err.status || 500;
     }
   } else {
-    await next();  
+    await next();
   }
 };

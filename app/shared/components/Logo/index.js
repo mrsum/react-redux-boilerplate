@@ -1,5 +1,6 @@
-'use strict';
-
+// ------------------------------
+// Depends
+// ------------------------------
 import styles from './_styles';
 import React, { Component } from 'react';
 import { Link } from 'react-router';

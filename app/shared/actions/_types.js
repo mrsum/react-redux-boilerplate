@@ -1,5 +1,3 @@
-'use strict';
-
 // ------------------------------
 // Router actions
 // ------------------------------
@@ -18,5 +16,3 @@ export const PENDING      = '_PENDING';
 // ------------------------------
 export const REQUEST_TRACK = 'REQUEST_TRACK';
 export const REQUEST_TRACKS = 'REQUEST_TRACKS';
-
-

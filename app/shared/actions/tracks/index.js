@@ -1,6 +1,6 @@
-'use strict';
-
-// actions types
+// ------------------------------
+// Import Actions Types
+// ------------------------------
 import { REQUEST_TRACK, REQUEST_TRACKS } from '_shared/actions/_types';
 
 
