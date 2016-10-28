@@ -1,11 +1,14 @@
 {
   "presets": [
-    "es2015",
     "react",
+    "es2015",
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    ["module-alias", [
+      { "src": "./app/shared", "expose": "_shared" }
+    ]]
   ],
   "ignore": [
     "node_modules",

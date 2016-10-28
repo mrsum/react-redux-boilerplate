@@ -1,27 +1,39 @@
 // ------------------------------
-// Import Actions Types
+// Depends
 // ------------------------------
 import { ActionTypes } from '_shared/constants/tracks';
+import axios from 'axios';
+
 
 
 /**
  * Get all topics
- * @param  {Object} params [description]
- * @return {[type]}        [description]
+ * @param  {Object} params
+ * @return {[type]}
  */
-const getTracks = (params = {}) => ({
+export const getTracks = (params = {}) => ({
   type: ActionTypes.REQUEST_TRACKS,
-  payload: fetch('http://api.soundcloud.com/tracks/?client_id=04a0e1708f413b9e335d4b13ea98c253&genres=indie&limit=25', params)
-    .then(res => res.json())
+  payload: axios.get('http://api.soundcloud.com/tracks', {
+    params: Object.assign({
+      client_id: '04a0e1708f413b9e335d4b13ea98c253',
+      genres: 'indie',
+      limit: 25
+    }, params)
+  }).then(res => res.data)
 });
 
-const getTrackById = (id, params = {}) => ({
+
+/**
+ * Get topic by ID
+ * @param  {number} id
+ * @param  {Object} [params={}]
+ * @return {Promise}
+ */
+export const getTrackById = (id, params = {}) => ({
   type: ActionTypes.REQUEST_TRACK,
-  payload: fetch(`http://api.soundcloud.com/tracks/${id}/?client_id=04a0e1708f413b9e335d4b13ea98c253`, params)
-    .then(res => res.json())
+  payload: axios.get(`http://api.soundcloud.com/tracks/${id}`, {
+    params: Object.assign({
+      client_id: '04a0e1708f413b9e335d4b13ea98c253'
+    }, params)
+  }).then(res => res.data)
 });
-
-export {
-  getTracks,
-  getTrackById
-};

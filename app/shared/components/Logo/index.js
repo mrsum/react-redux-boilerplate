@@ -1,7 +1,7 @@
 // ------------------------------
 // Depends
 // ------------------------------
-import styles from './_styles';
+import styles from './_styles.styl';
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 

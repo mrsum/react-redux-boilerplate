@@ -19,7 +19,7 @@ module.exports = config => {
 
   // webpack resolvers
   const resolve = {
-    extensions: ['', '.js', '.jsx', '.styl', '.json'],
+    extensions: ['', '.js', '.jsx', '.json'],
     modulesDirectories: [
       'node_modules/'
     ],
@@ -71,16 +71,12 @@ module.exports = config => {
       filename: config.build.server.file,
       libraryTarget: 'commonjs2'
     },
+    debug: true,
     resolve: resolve,
     devtool: env === 'production' ? 'source-map' : 'eval',
     externals: nodeModules,
     module: {
       loaders: loaders
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        fetch: 'isomorphic-fetch'
-      })
-    ]
+    }
   };
 };

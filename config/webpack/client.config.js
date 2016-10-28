@@ -20,7 +20,7 @@ module.exports = config => {
 
   // webpack resolvers
   const resolve = {
-    extensions: ['', '.js', '.jsx', '.styl', 'json'],
+    extensions: ['', '.js', '.jsx', 'json'],
     modulesDirectories: [
       `${dir}/node_modules/`
     ],
@@ -57,7 +57,6 @@ module.exports = config => {
   return {
     name: 'ship-client',
     entry: [
-      'whatwg-fetch',
       config.development.client.file
     ],
     target: 'web',

@@ -1,7 +1,7 @@
 // ------------------------------
 // Depends
 // ------------------------------
-import styles from './_styles';
+import styles from './_styles.styl';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { getTrackById } from '_shared/actions/tracks';
