@@ -63,7 +63,7 @@ export default async function(ctx) {
   });
 
   if (renderWait) {
-    let html = await renderWait;
+    await renderWait;
     ctx.body = '<!doctype html>\n' +
       ReactDomServer.renderToString(<Html component={component} store={store} />);
   }

@@ -30,12 +30,19 @@ class Html extends Component {
           <meta charSet='utf-8'/>
           <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
           <meta name='referrer' content='unsafe-url'/>
-          <meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+          <meta
+            name='viewport'
+            content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+            />
           <link rel='stylesheet' href={cssUrl} />
         </head>
         <body>
           <div id='app' dangerouslySetInnerHTML={{__html: content}}/>
-          <script src={jsUrl} charSet='UTF-8' async='async'/>
+          <script
+            src={jsUrl}
+            charSet='UTF-8'
+            async='async'
+          />
         </body>
       </html>
     );
