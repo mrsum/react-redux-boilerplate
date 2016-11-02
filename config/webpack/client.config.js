@@ -67,10 +67,11 @@ module.exports = config => {
 
   return {
     name: 'ship-client',
-    entry: [
-      'whatwg-fetch',
-      config.development.client.file
-    ],
+    entry: {
+      app: [
+        config.development.client.file
+      ]
+    },
     target: 'web',
     output: {
       path: config.build.client.path,
