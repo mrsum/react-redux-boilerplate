@@ -28,7 +28,9 @@ class TrackPage extends Component {
     let audio;
     if (url) {
       audio = (
-        <audio autoPlay controls preload='none' className={styles.audio}>
+        <audio autoPlay controls
+          className={styles.audio}
+          preload='none'>
           <source src={`${url}?client_id=04a0e1708f413b9e335d4b13ea98c253`} type='audio/mpeg' />
         </audio>
       );
@@ -51,7 +53,7 @@ class TrackPage extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     track: state.tracks
   };

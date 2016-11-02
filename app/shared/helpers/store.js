@@ -1,7 +1,6 @@
 // ------------------------------
 // Depends
 // ------------------------------
-import React from 'react';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import promiseMiddleware from 'redux-promise-middleware';
