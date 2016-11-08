@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "react",
+    "es2015",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime",
+    ["module-alias", [
+      { "src": "./app/shared", "expose": "_shared" }
+    ]]
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ]
+}
