@@ -49,7 +49,7 @@ module.exports = config => {
 
     {
       test: /\.(js|jsx)$/i,
-      loader: 'babel-loader',
+      loader: 'react-hot!babel',
       exclude: /(node_modules|bower_components)/
     }
   ];
