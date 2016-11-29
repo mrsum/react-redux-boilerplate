@@ -4,7 +4,9 @@
   "description": "rShip koa, react, redux isomorphic sample",
   "main": "index.js",
   "scripts": {
-    "test": "$(npm bin)/jest"
+    "test": "$(npm bin)/jest",
+    "build:dev": "rship run dev",
+    "build:prod": "rship run build" 
   },
   "author": "Michael Chernobrov <me@mrsum.ru> (http://mrsum.ru)",
   "license": "ISC",
@@ -23,9 +25,8 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.7.1",
     "autoprefixer": "^6.5.0",
-    "babel-runtime": "^6.11.6",
+    "axios-mock-adapter": "^1.7.1",
     "babel-core": "^6.17.0",
     "babel-jest": "^16.0.0",
     "babel-loader": "^6.2.5",
@@ -35,12 +36,13 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.16.0",
+    "babel-runtime": "^6.11.6",
     "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
     "enzyme": "^2.5.1",
     "eslint": "^3.7.1",
     "eslint-config-rambler": "^0.2.5",
     "eslint-loader": "^1.5.0",
-    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "ignore-loader": "^0.1.1",
@@ -56,8 +58,8 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "2.1.0-beta.27",
+    "webpack-dev-server": "2.1.0-beta.12"
   },
   "jest": {
     "moduleFileExtensions": [
