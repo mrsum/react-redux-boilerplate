@@ -3,7 +3,6 @@
 // ======================
 // Depends
 // ======================
-const autoprefixer      = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
@@ -20,8 +19,8 @@ module.exports = config => {
 
   // webpack resolvers
   const resolve = {
-    extensions: ['', '.js', '.jsx', 'json'],
-    modulesDirectories: [
+    extensions: ['.js', '.jsx', 'json'],
+    modules: [
       `${dir}/node_modules/`
     ],
     alias: config.aliases
@@ -32,19 +31,30 @@ module.exports = config => {
 
     {
       test: /\.(ttf|eot|woff|woff2|png|ico|jpg|jpeg|gif|svg)$/i,
-      loaders: [`file?context=${dir}/app&name=assets/static/[ext]/[name].[hash].[ext]`]
+      loaders: [`file-loader?context=${dir}/app&name=assets/static/[ext]/[name].[hash].[ext]`]
     },
 
     {
       test: /\.styl$/,
-      loader: ExtractTextPlugin.extract(
-        'isomorphic-style-loader',
-        'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]--[hash:base64:5]!postcss-loader!stylus-loader'
-      )
+      loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'isomorphic-style-loader',
+        loader: [
+          {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              importLoaders: 2,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            }
+          },
+          'postcss-loader',
+          'stylus-loader'
+        ]
+      })
     },
 
     {
-      test: /.json$/, loader: 'json'
+      test: /.json$/, loader: 'json-loader'
     },
 
     {
@@ -71,20 +81,25 @@ module.exports = config => {
     resolve: resolve,
     devtool: env === 'production' ? 'source-map' : 'source-map',
     module: {
-      loaders: loaders
-    },
-
-    postcss: function() {
-      return [autoprefixer];
+      rules: loaders
     },
 
     plugins: [
-      new ExtractTextPlugin('assets/css/style.css', { allChunks: true }),
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: [
+            require('autoprefixer')
+          ]
+        }
+      }),
+      new ExtractTextPlugin({
+        filename: 'assets/css/style.css',
+        allChunks: true
+      }),
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify(env)
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         children: true,

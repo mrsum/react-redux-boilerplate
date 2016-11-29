@@ -19,8 +19,8 @@ module.exports = config => {
 
   // webpack resolvers
   const resolve = {
-    extensions: ['', '.js', '.jsx', '.json'],
-    modulesDirectories: [
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [
       'node_modules/'
     ],
     alias: config.aliases
@@ -45,7 +45,7 @@ module.exports = config => {
     },
 
     {
-      test: /.json$/, loader: 'json'
+      test: /.json$/, loader: 'json-loader'
     },
 
     {
@@ -71,12 +71,20 @@ module.exports = config => {
       filename: config.build.server.file,
       libraryTarget: 'commonjs2'
     },
-    debug: true,
     resolve: resolve,
     devtool: env === 'production' ? 'source-map' : 'eval',
     externals: nodeModules,
     module: {
-      loaders: loaders
-    }
+      rules: loaders
+    },
+    plugins: [
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: [
+            require('autoprefixer')
+          ]
+        }
+      }),
+    ]
   };
 };
