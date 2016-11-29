@@ -1,4 +1,6 @@
-## React Redux Boilerplate
+## Isomorphic React Redux Boilerplate
+
+[![Build Status](https://travis-ci.org/mrsum/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/mrsum/react-redux-boilerplate)
 
 Current Boierplate made for [rship](https://github.com/rambler-digital-solutions/rship)
 
