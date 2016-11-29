@@ -82,7 +82,7 @@ More details at [airbnb](http://nerds.airbnb.com/isomorphic-javascript-future-we
 │       ├── helpers                        # some shared helpers
 │       │   ├── fetchData.js
 │       │   └── store.js
-│       ├── reducers
+│       ├── reducers                       # reducers, @see redux
 │       │   ├── index.js
 │       │   └── tracks
 │       │       ├── __tests__
