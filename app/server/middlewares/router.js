@@ -19,6 +19,9 @@ import fetchComponentsData from '_shared/helpers/fetchData';
 // Koa middleware
 // ------------------------------
 export default async function(ctx) {
+   // ignore favicon
+  if (ctx.request.url === '/favicon.ico') return;
+
   // -----------------------------------
   // Prepare history, store and routes
   // -----------------------------------
