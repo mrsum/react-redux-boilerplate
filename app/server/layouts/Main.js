@@ -43,6 +43,8 @@ class Html extends Component {
             charSet='UTF-8'
             async='async'
           />
+
+          <script dangerouslySetInnerHTML={{__html: `window.__ENV__ = '${process.env.NODE_ENV || 'dev'}'`}}/>
         </body>
       </html>
     );

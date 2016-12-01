@@ -5,3 +5,4 @@ node_modules/
 manifest.json
 npm-debug.log
 *.lock
+*.log

@@ -41,6 +41,10 @@ module.exports = {
       host: 'localhost',
       port: '8090',
       file: __root + '/app/client.js'
+    },
+    websocket: {
+      host: 'localhost',
+      port: '3002'
     }
   },
 

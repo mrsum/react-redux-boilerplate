@@ -80,11 +80,6 @@ module.exports = config => {
 
     plugins: [
       new ExtractTextPlugin('assets/css/style.css', { allChunks: true }),
-      new webpack.DefinePlugin({
-        __ENV__: JSON.stringify(env)
-      }),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         children: true,
