@@ -13,7 +13,7 @@ class Html extends Component {
   };
 
   render() {
-    const { component } = this.props;
+    const {component, store} = this.props;
     const content = component ? ReactDOM.renderToString(component) : '';
 
     const jsUrl = process.env.NODE_ENV === 'development'
@@ -26,26 +26,27 @@ class Html extends Component {
 
     return (
       <html lang='en-us'>
-        <head>
-          <meta charSet='utf-8'/>
-          <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
-          <meta name='referrer' content='unsafe-url'/>
-          <meta
-            name='viewport'
-            content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
-            />
-          <link rel='stylesheet' href={cssUrl} />
-        </head>
-        <body>
-          <div id='app' dangerouslySetInnerHTML={{__html: content}}/>
-          <script
-            src={jsUrl}
-            charSet='UTF-8'
-            async='async'
-          />
+      <head>
+        <meta charSet='utf-8'/>
+        <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+        <meta name='referrer' content='unsafe-url'/>
+        <meta
+          name='viewport'
+          content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+        />
+        <link rel='stylesheet' href={cssUrl} />
+      </head>
+      <body>
+      <div id='app' dangerouslySetInnerHTML={{__html: content}}/>
+      <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())}`}}/>
+      <script
+        src={jsUrl}
+        charSet='UTF-8'
+        async='async'
+      />
 
-          <script dangerouslySetInnerHTML={{__html: `window.__ENV__ = '${process.env.NODE_ENV || 'dev'}'`}}/>
-        </body>
+      <script dangerouslySetInnerHTML={{__html: `window.__ENV__ = '${process.env.NODE_ENV || 'dev'}'`}}/>
+      </body>
       </html>
     );
   }
