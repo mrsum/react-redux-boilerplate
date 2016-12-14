@@ -13,7 +13,7 @@ class Html extends Component {
   };
 
   render() {
-    const { component } = this.props;
+    const {component, store} = this.props;
     const content = component ? ReactDOM.renderToString(component) : '';
 
     const jsUrl = process.env.NODE_ENV === 'development'
@@ -38,6 +38,7 @@ class Html extends Component {
         </head>
         <body>
           <div id='app' dangerouslySetInnerHTML={{__html: content}}/>
+          <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())}`}}/>
           <script
             src={jsUrl}
             charSet='UTF-8'

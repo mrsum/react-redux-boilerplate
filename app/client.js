@@ -37,7 +37,7 @@ if (window.__ENV__ === 'development') {
 // Prepare data
 // ------------------------------------
 const MOUNT_NODE = document.getElementById('app');
-const store = storeConfigurator(browserHistory, {}, storeMiddlewares);
+const store = storeConfigurator(browserHistory, window.__INITIAL_STATE__, storeMiddlewares);
 const history = syncHistoryWithStore(browserHistory, store);
 const routes = (
   <Provider store={store}>
@@ -51,13 +51,15 @@ const routes = (
 // ------------------------------------
 // Subscribe on location change
 // ------------------------------------
+
+// Server provides markup and data for first page
+let needFetchData = false;
+
 history.listen(location => {
-  match({ routes, history, location }, (error, redirectLocation, renderProps) => {
-    fetchComponentsData(
-      store.dispatch,
-      renderProps.components,
-      renderProps.params
-    );
+  match({routes, history, location}, (error, redirectLocation, renderProps) => {
+    needFetchData
+      ? fetchComponentsData(store.dispatch, renderProps.components, renderProps.params)
+      : needFetchData = true;
   });
 });
 
