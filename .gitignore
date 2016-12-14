@@ -4,5 +4,6 @@ dist/
 node_modules/
 manifest.json
 npm-debug.log
+.idea
 *.lock
 *.log
