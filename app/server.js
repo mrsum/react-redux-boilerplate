@@ -4,6 +4,7 @@
 // ------------------------------
 import Koa from 'koa';
 import config from '_config';
+import serve from 'koa-static-server';
 
 // ------------------------------
 // Import middlewares
@@ -22,6 +23,10 @@ const app = new Koa();
 // ------------------------------
 // Apply middlewares
 // ------------------------------
+if (__ENV === 'production') {
+  app.use( serve({rootDir:config.build.client.path, rootPath:'/static'}));
+}
+
 app.use(logger);
 app.use(router);
 
@@ -36,7 +41,7 @@ app.on('error', (err) => {
 // Start application (localhost:3000)
 // ------------------------------
 app.listen(config[__ENV].server.port, function() {
-  console.log(`Started: Name: ${config.name} | Port: ${config[__ENV].server.port}`); // eslint-disable-line no-console
+  console.log(`Started: Name: ${config.name} | Port: ${config[__ENV].server.port} | ENV: ${__ENV}`); // eslint-disable-line no-console
 });
 
 export default app;
