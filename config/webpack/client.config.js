@@ -100,7 +100,7 @@ module.exports = config => {
         __ENV__: JSON.stringify(env)
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         children: true,
         async: true,
