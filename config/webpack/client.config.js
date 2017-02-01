@@ -99,7 +99,6 @@ module.exports = config => {
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify(env)
       }),
-      new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         children: true,

@@ -4,9 +4,7 @@
   "description": "react-redux-boilerplate for rship",
   "main": "index.js",
   "scripts": {
-    "test": "$(npm bin)/jest",
-    "build:dev": "rship run dev",
-    "build:prod": "rship run build"
+    "test": "$(npm bin)/jest"
   },
   "author": "Michael Chernobrov <me@mrsum.ru> (http://mrsum.ru)",
   "license": "ISC",
