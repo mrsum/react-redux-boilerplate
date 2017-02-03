@@ -6,7 +6,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { getTracks } from '_shared/actions/tracks';
- 
+
 class IndexPage extends Component {
 
   static defaultProps = {

@@ -2,5 +2,8 @@
   "extends": "rambler",
   "rules": {
     "react/sort-prop-types": 0
+  },
+  "settings": {
+      "import/ignore": [".styl$", "node_modules/*"]
   }
 }
