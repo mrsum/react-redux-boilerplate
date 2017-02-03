@@ -42,13 +42,17 @@ export default async function(ctx) {
   // ------------------------------
   match({history, routes, location},  function(error, redirectLocation, renderProps) {
     if (error) {
-      ctx.status(500).send(error.message);
+      ctx.res.statusCode = 500;
+      ctx.res.end(error.message);
+
       return;
     } else if (redirectLocation) {
       ctx.redirect(302, redirectLocation.pathname + redirectLocation.search);
       return;
     } else if (!renderProps) {
-      ctx.status(404).send({});
+      ctx.res.statusCode = 404;
+      ctx.res.end();
+
       return;
     }
 
