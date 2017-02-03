@@ -12,6 +12,7 @@
     "axios": "0.15.2",
     "key-mirror": "1.0.1",
     "koa": "2.0.0",
+    "koa-static-server": "1.0.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "react-redux": "4.4.5",
