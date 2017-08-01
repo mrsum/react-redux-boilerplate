@@ -4,6 +4,7 @@
 import config from '_config';
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom/server';
+import serialize from 'serialize-javascript';
 
 class Html extends Component {
   static propTypes = {
@@ -38,7 +39,7 @@ class Html extends Component {
         </head>
         <body>
           <div id='app' dangerouslySetInnerHTML={{__html: content}}/>
-          <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())}`}}/>
+          <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__ = ${serialize(store.getState())}`}}/>
           <script
             src={jsUrl}
             charSet='UTF-8'
